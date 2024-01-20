@@ -1,7 +1,7 @@
 name: Deploment v1
 on: push
 jobs:
-  setting eviroment:
+  setting_eviroment:
     runs-on: ubuntu-latest
     steps:
     - name: Get repo code
@@ -11,7 +11,7 @@ jobs:
       with:
         node-version: 18
     - name: Install Dependencies
-    run: npm run ci
+    run: npm ci
     - name: Run lint
     run: npm run lint
     - name: Run unit tests

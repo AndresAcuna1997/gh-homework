@@ -1,7 +1,7 @@
 name: Deploment v2
 on: push
 jobs:
-  get-code:
+  get_code:
     runs-on: ubuntu-latest
     steps:
     - name: Get repo code
@@ -12,15 +12,15 @@ jobs:
         node-version: 18
     - name: Install Dependencies
     run: npm run ci
-  run-lint:
+  run_lint:
     needs: get-code
     - name: Run lint
     run: npm run lint
-  run-tests:
+  run_tests:
     needs: run-lint
     - name: Run unit tests
     run: npm run test
-  run-build:
+  run_build:
     needs: run-tests
     - name: Build the Project
     run: npm run build
