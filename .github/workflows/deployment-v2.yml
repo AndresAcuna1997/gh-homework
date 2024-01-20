@@ -1,33 +1,43 @@
 name: Deploment v2
 on: push
 jobs:
-  get-code:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get repo code
-        uses: actions/checkout@v3
-      - name: Install Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - name: Install Dependencies
-        run: npm ci
-  # run-lint:
-  #     needs: get-code
-  #     runs-on: ubuntu-latest
-  #     steps:
-  #       - name: Run lint
-  #         run: npm run lint
-  run-tests:
-      needs: get-code
+  run-lint:
       runs-on: ubuntu-latest
       steps:
+        - name: Get repo code
+          uses: actions/checkout@v3
+        - name: Install Node
+          uses: actions/setup-node@v3
+            with:
+          node-version: 18
+        - name: Install Dependencies
+          run: npm ci
+        - name: Run lint
+          run: npm run lint
+  run-tests:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Get repo code
+          uses: actions/checkout@v3
+        - name: Install Node
+          uses: actions/setup-node@v3
+            with:
+          node-version: 18
+        - name: Install Dependencies
+          run: npm ci
         - name: Run unit tests
           run: npm run test
   run-build:
-      needs: run-tests
       runs-on: ubuntu-latest
       steps:
+        - name: Get repo code
+          uses: actions/checkout@v3
+        - name: Install Node
+          uses: actions/setup-node@v3
+            with:
+          node-version: 18
+        - name: Install Dependencies
+          run: npm ci
         - name: Build the Project
           run: npm run build
         - name: Deployment
