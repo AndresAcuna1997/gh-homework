@@ -1,7 +1,7 @@
 name: Deploment v1
 on: push
 jobs:
-  get-code:
+  setting eviroment:
     runs-on: ubuntu-latest
     steps:
     - name: Get repo code
