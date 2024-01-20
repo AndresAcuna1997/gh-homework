@@ -23,13 +23,13 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Run unit tests
-        run: npm test
+          run: npm run test
   run-build:
       needs: run-tests
       runs-on: ubuntu-latest
       steps:
         - name: Build the Project
-        run: npm run build
+          run: npm run build
         - name: Deployment
-        run: echo "Deploy"
+          run: echo "Deploy"
       
