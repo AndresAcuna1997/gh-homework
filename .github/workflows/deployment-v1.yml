@@ -5,19 +5,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get repo code
-      uses: actions/checkout@v3
+        uses: actions/checkout@v3
       - name: Install Node
-      uses: action/setup-node@v3
+        uses: action/setup-node@v3
         with:
           node-version: 18
       - name: Install Dependencies
-      run: npm ci
+        run: npm ci
       - name: Run lint
-      run: npm run lint
+        run: npm run lint
       - name: Run unit tests
-      run: npm run test
+        run: npm run test
       - name: Build the Project
-      run: npm run build
+        run: npm run build
       - name: Deployment
-      run: echo "Deploy"
+        run: echo "Deploy"
       
